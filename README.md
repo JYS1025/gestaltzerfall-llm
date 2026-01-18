@@ -29,11 +29,21 @@ The representation does not collapse but **drifts** from the canonical semantic 
 
 ### 3. Methodology & Metrics
 
-To quantify these internal dynamics, we employ a suite of topological and geometric probes:
+To quantify these internal dynamics, we employ a suite of topological and geometric probes. Let $H \in \mathbb{R}^{T \times d}$ be the hidden state matrix of a sequence of length $T$, and $A^{(h)} \in \mathbb{R}^{T \times T}$ be the attention matrix of head $h$.
 
-*   **Effective Rank (Topological Analysis):** Measures the Shannon entropy of the singular value spectrum of the hidden state matrix $H$. It quantifies the "information capacity" of the representation.
-*   **Cosine Drift (Geometric Analysis):** Tracks the trajectory of the hidden state $h_t$ relative to the initial state $h_0$, measuring the divergence of meaning over time.
-*   **Attention Entropy (Entropic Analysis):** Quantifies the focus of attention heads, distinguishing between broad context integration and pathological fixation.
+*   **Effective Rank (Topological Analysis):**
+    Measures the "information capacity" of the representation via the Shannon entropy of its singular value spectrum.
+    $$ER(H) = \exp\left( - \sum_{i=1}^{\min(T, d)} p_i \log p_i \right)$$
+    where $p_i = \frac{\sigma_i}{\sum_j \sigma_j}$ are the normalized singular values from $H = U \Sigma V^T$.
+
+*   **Cosine Drift (Geometric Analysis):**
+    Tracks the trajectory of the hidden state $h_t$ relative to the initial state $h_0$, measuring the divergence of meaning over time.
+    $$Sim(t) = \cos(h_0, h_t) = \frac{h_0 \cdot h_t}{\|h_0\|_2 \|h_t\|_2}$$
+
+*   **Attention Entropy (Entropic Analysis):**
+    Quantifies the focus of attention heads. For a specific token $t$ and head $h$, the entropy of the attention distribution over previous tokens is:
+    $$S(A_{t}^{(h)}) = - \sum_{j=1}^{t} A_{t,j}^{(h)} \log A_{t,j}^{(h)}$$
+    Low entropy implies **Fixation** (locking onto one token), while high entropy implies broad context integration.
 
 ---
 
