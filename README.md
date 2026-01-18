@@ -34,25 +34,25 @@ To quantify these internal dynamics, we employ a suite of topological and geomet
 *   **Effective Rank (Topological Analysis):**
     Measures the "information capacity" of the representation via the Shannon entropy of its singular value spectrum.
 
-    $$
-    ER(H) = \exp\left( - \sum_{i=1}^{\min(T, d)} p_i \log p_i \right)
-    $$
+$$
+ER(H) = \exp\left( - \sum_{i=1}^{\min(T, d)} p_i \log p_i \right)
+$$
 
     > Where $p_i = \frac{\sigma_i}{\sum_j \sigma_j}$ are the normalized singular values from $H = U \Sigma V^T$.
 
 *   **Cosine Drift (Geometric Analysis):**
     Tracks the trajectory of the hidden state $h_t$ relative to the initial state $h_0$, measuring the divergence of meaning over time.
 
-    $$
-    Sim(t) = \cos(h_0, h_t) = \frac{h_0 \cdot h_t}{\|h_0\|_2 \|h_t\|_2}
-    $$
+$$
+Sim(t) = \cos(h_0, h_t) = \frac{h_0 \cdot h_t}{\|h_0\|_2 \|h_t\|_2}
+$$
 
 *   **Attention Entropy (Entropic Analysis):**
     Quantifies the focus of attention heads. For a specific token $t$ and head $h$, the entropy of the attention distribution over previous tokens is:
 
-    $$
-    S(A_{t}^{(h)}) = - \sum_{j=1}^{t} A_{t,j}^{(h)} \log A_{t,j}^{(h)}
-    $$
+$$
+S(A_{t}^{(h)}) = - \sum_{j=1}^{t} A_{t,j}^{(h)} \log A_{t,j}^{(h)}
+$$
 
     > **Interpretation:** Low entropy implies **Fixation** (locking onto one token), while high entropy implies broad context integration.
 
