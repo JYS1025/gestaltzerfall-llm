@@ -1,0 +1,10 @@
+experiment:
+  results_dir: results
+  n_repeats: 100
+  stimulus_word: Apple
+models:
+- gpt2
+- bert-base-uncased
+- state-spaces/mamba-130m-hf
+visualization:
+  truncate_layers: true
