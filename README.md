@@ -38,7 +38,7 @@ $$
 ER(H) = \exp\left( - \sum_{i=1}^{\min(T, d)} p_i \log p_i \right)
 $$
 
-    > Where $p_i = \frac{\sigma_i}{\sum_j \sigma_j}$ are the normalized singular values from $H = U \Sigma V^T$.
+> Where $p_i = \frac{\sigma_i}{\sum_j \sigma_j}$ are the normalized singular values from $H = U \Sigma V^T$.
 
 *   **Cosine Drift (Geometric Analysis):**
     Tracks the trajectory of the hidden state $h_t$ relative to the initial state $h_0$, measuring the divergence of meaning over time.
@@ -54,7 +54,7 @@ $$
 S(A_{t}^{(h)}) = - \sum_{j=1}^{t} A_{t,j}^{(h)} \log A_{t,j}^{(h)}
 $$
 
-    > **Interpretation:** Low entropy implies **Fixation** (locking onto one token), while high entropy implies broad context integration.
+> **Interpretation:** Low entropy implies **Fixation** (locking onto one token), while high entropy implies broad context integration.
 
 ---
 
