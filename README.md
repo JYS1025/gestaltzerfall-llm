@@ -38,7 +38,7 @@ $$
 ER(H) = \exp\left( - \sum_{i=1}^{\min(T, d)} p_i \log p_i \right)
 $$
 
-> Where $p_i = \frac{\sigma_i}{\sum_j \sigma_j}$ are the normalized singular values from $H = U \Sigma V^T$.
+> Where $p_i = {\sigma_i}/{\sum_j \sigma_j}$ are the normalized singular values from $H = U \Sigma V^T$.
 
 *   **Cosine Drift (Geometric Analysis):**
     Tracks the trajectory of the hidden state $h_t$ relative to the initial state $h_0$, measuring the divergence of meaning over time.
